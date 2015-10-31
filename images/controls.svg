@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" id="controls" viewBox="50 50 200 250" preserveAspectRatio="xMidYMid meet" width="150pt" height="200pt">
+	<g id="pause" style="visibility:hidden">
+		<rect x="50" y="50" width="60" height="200" style="fill:black" />
+		<rect x="140" y="50" width="60" height="200" style="fill:black" />
+	</g>
+	<polygon id="play" points="50,50 50,250 200,150" style="fill:black;visibility:visible" />
+	<rect id="hitbox" x="50" y="50" width="150" height="200" style="fill:magenta;opacity:0;cursor:pointer" />
+</svg>
