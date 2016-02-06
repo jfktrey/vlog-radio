@@ -24,4 +24,4 @@ To get around this, I came up with a very hackish solution. When testing out the
 Where can I find the full playlist?
 -----------------------------------
 
-[Right here!](https://soundcloud.com/kenivkie/sets/casey-neistat-vlog-music)
+[Right here!](https://soundcloud.com/kenickiemusic/sets/casey-neistat-vlog-music)
