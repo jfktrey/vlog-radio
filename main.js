@@ -199,9 +199,7 @@ function createPlayer (playlistNumber) {
 
 		// When a song finishes, load a random new one.
 		player.handle.bind(SC.Widget.Events.FINISH, function () {
-			var newTrack = Math.floor(Math.random() * player.songCount);
-			console.log("Now playing track #" + newTrack);
-			player.handle.skip(newTrack);
+			randomTrack();
 		});
 
 		// When a song starts playing, check to see if it was from the mobile hack. If so, immediately pause and hide the touch overlay.
@@ -216,6 +214,16 @@ function createPlayer (playlistNumber) {
 	});
 
 	return appended;
+}
+
+
+// Play a random new track.
+function randomTrack () {
+	var newTrack = Math.floor(Math.random() * player.songCount);
+	player.handle.skip(newTrack);
+	player.handle.play();
+
+	console.info("Now playing track %c#" + newTrack, "color: limegreen");
 }
 
 
@@ -239,23 +247,17 @@ function controlsEventHandler (e) {
 			// If we're already playing, then pause the player.
 			if (player.state === player.STATES.PLAYING) {
 				player.state = player.STATES.PAUSING;
+				setControls(player.state);
 
 				player.handle.pause();
-
-				setControls(player.STATES.PAUSING);
 				console.info("%cStopped playing track.", "color: indianred");
-
-				if (audioLocked) setCasey("open");
 
 			// Otherwise, start playing.
 			} else {
 				player.state = player.STATES.PLAYING;
+				setControls(player.state);
 
-				var newTrack = Math.floor(Math.random() * player.songCount);
-				player.handle.skip(newTrack);
-
-				setControls(player.STATES.PLAYING);
-				console.info("Now playing track %c#" + newTrack, "color: limegreen");
+				randomTrack();
 
 				// Automatically close Casey's mouth if we're working with a touchscreen.
 				if (audioLocked) {
