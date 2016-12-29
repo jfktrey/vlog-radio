@@ -3,7 +3,6 @@
 pages:
   stage: deploy
   script:
-  - echo Deploying...
   - ssh vlog-radio 'cd /var/www/html && git pull'
   only:
   - master
